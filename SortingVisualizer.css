@@ -1,0 +1,22 @@
+body {
+    background: black;
+    color: gray;
+}
+
+#progress {
+    background: gray;
+    width: 0em;
+    height: 1em;
+}
+
+#graph {
+    display: flex;
+    margin-top: 5em;
+    height: 100em;
+    justify-content: bottom;
+}
+
+.bar {
+    background: gray;
+    justify-content: bottom;
+}
