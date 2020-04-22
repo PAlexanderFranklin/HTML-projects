@@ -14,7 +14,7 @@ for (var i = 0; i < generations; i++) {
 	console.log("Generation: " + (i + 1))
     console.log("Living: " + (alive * 2));
     console.log("Ever lived: " + (total * 2));
-    console.log("Percent of people living: " + (alive / total));
-    console.log("Fraction of people living: " + (total / alive));
+    console.log("Percent of people living: " + (alive / total)*100);
+    console.log("Fraction of people living: 1/" + (total / alive));
     console.log("Living * rounded fraction - ever lived: " + ((alive * Math.round(total / alive) * 2) - (total * 2)));
 }
