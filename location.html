@@ -6,25 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <button>Get Location</button>
-    <div id="demo">location</div>
     <script>
-        var x = document.getElementById("demo");
         function getLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+          var coordinates = {};
+          function setCoordinates(position) {
+            coordinates = position.coords;
+            console.log(3, coordinates);
           }
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(setCoordinates);
+            console.log(2, coordinates);
+          }
+          console.log(1, coordinates);
+          return coordinates;
         }
         
-        function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude +
-          "<br>Longitude: " + position.coords.longitude;
-        }
-          
-        var button = document.querySelector("button");
-        button.addEventListener("click", getLocation);
+        let coord = getLocation();
+        console.log("latitude: " + coord.latitude + " longitude: " + coord.longitude);
     </script>
 </body>
 </html>
