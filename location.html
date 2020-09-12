@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Location.html</title>
 </head>
 <body>
+  <h1>Location</h1>
     <script>
         function getLocation() {
-          var coordinates = {};
           function setCoordinates(position) {
-            coordinates = position.coords;
-            console.log(3, coordinates);
+            let location = document.querySelector("h1");
+            location.innerHTML = "latitude: " + position.coords.latitude + " longitude: " + position.coords.longitude;
           }
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(setCoordinates);
-            console.log(2, coordinates);
           }
-          console.log(1, coordinates);
-          return coordinates;
         }
-        
-        let coord = getLocation();
-        console.log("latitude: " + coord.latitude + " longitude: " + coord.longitude);
+
+        getLocation();
     </script>
 </body>
 </html>
