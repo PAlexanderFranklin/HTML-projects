@@ -6,36 +6,19 @@
     <title>Location.html</title>
 </head>
 <body>
+  <h1>Location</h1>
     <script>
-        // function getLocation() {
-        //   function setCoordinates(position) {
-        //     window.coordinates = position.coords;
-        //     console.log(3, window.coordinates);
-        //   }
-        //   if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(setCoordinates);
-        //     console.log(2, window.coordinates);
-        //   }
-        //   console.log(1, window.coordinates);
-        //   return window.coordinates;
-        // }
-        
-        // let coord = getLocation();
-        // console.log("latitude: " + coord.latitude + " longitude: " + coord.longitude);
-
-        function doSomething() {
-          function callBack(d) {
-            window.data = d;
+        function getLocation() {
+          function logCoordinates(position) {
+            let location = document.querySelector("h1");
+            location.innerHTML = "latitude: " + position.coords.latitude + " longitude: " + position.coords.longitude;
           }
-          navigator.geolocation.getCurrentPosition(callBack);
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(logCoordinates);
+          }
         }
 
-        window.data = 1;
-        doSomething();
-        // while (window.data === 1) {
-        //   console.log(2);
-        // }
-        console.log(window.data);
+        getLocation();
     </script>
 </body>
 </html>
