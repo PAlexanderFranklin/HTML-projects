@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Location.html</title>
 </head>
 <body>
     <script>
-        function getLocation() {
-          var coordinates = {};
-          function setCoordinates(position) {
-            coordinates = position.coords;
-            console.log(3, coordinates);
-          }
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(setCoordinates);
-            console.log(2, coordinates);
-          }
-          console.log(1, coordinates);
-          return coordinates;
-        }
+        // function getLocation() {
+        //   function setCoordinates(position) {
+        //     window.coordinates = position.coords;
+        //     console.log(3, window.coordinates);
+        //   }
+        //   if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(setCoordinates);
+        //     console.log(2, window.coordinates);
+        //   }
+        //   console.log(1, window.coordinates);
+        //   return window.coordinates;
+        // }
         
-        let coord = getLocation();
-        console.log("latitude: " + coord.latitude + " longitude: " + coord.longitude);
+        // let coord = getLocation();
+        // console.log("latitude: " + coord.latitude + " longitude: " + coord.longitude);
+
+        function doSomething() {
+          function callBack(d) {
+            window.data = d;
+          }
+          navigator.geolocation.getCurrentPosition(callBack);
+        }
+
+        window.data = 1;
+        doSomething();
+        // while (window.data === 1) {
+        //   console.log(2);
+        // }
+        console.log(window.data);
     </script>
 </body>
 </html>
