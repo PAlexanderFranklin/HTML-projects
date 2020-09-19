@@ -7,17 +7,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 </head>
 <body>
-    <textarea class="one">input text here 16006 Angoul&ecirc;me, France</textarea>
+    <textarea class="input">Trademark™</textarea>
     <button>Convert</button>
-    <textarea class="two" disabled="true">output</textarea>
+    <textarea class="output" disabled="true">output</textarea>
 
     <script>
-        $(document).ready(function() {
-        });
-        let button = document.querySelector("button");
-        button.onclick = function convert() {
-            alert("converting")
+        // The important function
+        function convert(input, output) {        // Arguments are DOM elements
+            output.innerText = input.innerHTML;
         }
+
+        // Context code
+        function convertButton() {
+            let input = document.querySelector(".input");
+            let output = document.querySelector(".output");
+            convert(input, output);
+        }
+        document.querySelector("button").onclick = convertButton;
     </script>
 </body>
 </html>
